@@ -1,11 +1,19 @@
 import React from "react";
-import Topmusic from "../assets/musicTop.png";
+
 import { Link } from "react-router-dom";
 import { useGetTopChartsNgQuery } from "../redux/services/shazamCore";
+import { useDispatch } from "react-redux";
+import { setLikedSong } from "../redux/services/playerSlice";
 
 function TopCharts() {
   const { data, isFetching, error } = useGetTopChartsNgQuery();
   const topPlays = data?.slice(0, 3);
+  const dispatch = useDispatch();
+
+  const handleLiked = (song) => {
+    console.log(song);
+    dispatch(setLikedSong({ song }));
+  };
 
   if (isFetching) return <div>Loading .....</div>;
 
@@ -36,7 +44,10 @@ function TopCharts() {
                 <p className="font-normal text-xs">2:34:45</p>
               </div>
             </div>
-            <div className="border rounded-full p-2 border-[rgba(255,255,255,0.11)] mr-5 fill-transparent stroke-1  stroke-[#FACD66] hover:stroke-2 hover:bg-[#FACD66] hover:stroke-white">
+            <div
+              onClick={() => handleLiked(song)}
+              className="border rounded-full p-2 border-[rgba(255,255,255,0.11)] mr-5 fill-transparent stroke-1  stroke-[#FACD66] hover:stroke-2 hover:bg-[#FACD66] hover:stroke-white"
+            >
               <svg
                 width="18"
                 height="18"

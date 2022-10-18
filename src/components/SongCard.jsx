@@ -23,13 +23,6 @@ function SongCard({ song, isPlaying, activeSong, i, data }) {
       <p>{song?.title}</p>
 
       <p className="font-normal text-sm text-gray-500 mb-1">{song?.subtitle}</p>
-      <PlayPause
-        isPlaying={isPlaying}
-        song={song}
-        handlePause={handlePauseClick}
-        handlePlay={handlePlayClick}
-        activeSong={activeSong}
-      />
     </div>
   );
 }

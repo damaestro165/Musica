@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import Collections from "./components/Collections";
+import Home from "./pages/Home";
+import Collections from "./pages/Collections";
 import Navbar from "./components/Navbar";
 import MusicPlayer from "./components/MusicPlayer";
 

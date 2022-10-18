@@ -7,6 +7,7 @@ const initialState = {
   isPlaying: false,
   activeSong: {},
   genreListId: "",
+  likedSong: [],
 };
 
 const playerSlice = createSlice({
@@ -25,7 +26,15 @@ const playerSlice = createSlice({
       }
 
       state.currentIndex = action.payload.i;
+
       state.isActive = true;
+    },
+
+    setLikedSong: (state, action) => {
+      if (action.payload?.data?.key = state.likedSong[action.payload].key){
+
+      }
+       state.likedSong.push(action.payload.song);
     },
 
     nextSong: (state, action) => {
@@ -56,7 +65,7 @@ const playerSlice = createSlice({
   },
 });
 
-export const { setActiveSong, nextSong, prevSong, playPause } =
+export const { setActiveSong, nextSong, prevSong, playPause, setLikedSong } =
   playerSlice.actions;
 
 export default playerSlice.reducer;

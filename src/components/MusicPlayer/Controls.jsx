@@ -1,12 +1,6 @@
 import React from "react";
 
 import { PauseCircle } from "iconsax-react";
-import {
-  BsArrowRepeat,
-  BsFillPauseFill,
-  BsFillPlayFill,
-  BsShuffle,
-} from "react-icons/bs";
 
 const Controls = ({
   isPlaying,
@@ -21,7 +15,7 @@ const Controls = ({
 }) => (
   <div className="flex items-center justify-between w-[16rem] mb-5">
     <div
-      onClick={() => setShuffle((prev) => !prev)}
+      onClick={() => setShuffle(!shuffle)}
       className="hidden sm:block cursor-pointer"
     >
       <svg

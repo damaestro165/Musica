@@ -16,8 +16,8 @@ export class Hero extends Component {
             <p className="h-1/3">Currated playlist</p>
             <div className="h-2/3 flex flex-col justify-between">
               <div>
-                <h1>R & B Hits</h1>
-                <p>
+                <h1 className="font-bold text-[2.18rem]">R & B Hits</h1>
+                <p className="text-sm font-normal">
                   All mine, Lie again, Petty call me everyday, Out of time, No
                   love, Bad habit, and so much more
                 </p>

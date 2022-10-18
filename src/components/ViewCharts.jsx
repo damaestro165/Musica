@@ -14,9 +14,9 @@ function ViewCharts() {
         className="bg-no-repeat bg-cover bg-left-top ml-[5.2rem] h-[100vh] w-[100vw]"
         style={{ backgroundImage: `url(${song?.images?.coverart})` }}
       >
-        <div className="flex flex-col bg-gradient-to-b from-transparent to-[#1D2123] h-[100vh] ">
+        <div className="flex flex-col bg-gradient-to-b from-white/10 to-[#1E1E1E] backdrop-blur-md h-[100vh] ">
           <SearchBar />
-          <div className="bg-[#1D2123] bg-opacity-[.35] ml-5 flex items-end ">
+          <div className="ml-5 flex items-end ">
             <img
               src={song?.images?.coverart}
               className="rounded-[2.2rem] h-[18.1rem]"

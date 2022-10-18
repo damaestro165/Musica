@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useGetTopChartsNgQuery } from "../redux/services/shazamCore";
 import { useDispatch, useSelector } from "react-redux";
-import { setActiveSong } from "../redux/services/playerSlice";
-import MusicPlayer from "./MusicPlayer";
+
 import SongCard from "./SongCard";
 
 function NewRelease() {
@@ -14,7 +13,7 @@ function NewRelease() {
 
   return (
     <div className="mt-[2.6rem]">
-      <div>New Release </div>
+      <div className="font-bold text-2xl mb-2">New Release </div>
       <div className="flex overflow-x-scroll scrollbar-hide">
         {data?.map((song, i) => (
           <div>
