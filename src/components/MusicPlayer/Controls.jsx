@@ -85,7 +85,7 @@ const Controls = ({
               height="25.5453"
               rx="12.5"
               fill="#FACD66"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
             <path
               d="M26.3333 30.7726V28.9536C26.3333 26.6192 27.9856 25.6643 30.0017 26.8315L31.5781 27.7409L33.1546 28.6504C35.1707 29.8176 35.1707 31.7276 33.1546 32.8948L31.5781 33.8043L30.0017 34.7138C27.9856 35.881 26.3333 34.926 26.3333 32.5917V30.7726Z"
@@ -100,9 +100,9 @@ const Controls = ({
               width="61"
               height="61.5453"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"

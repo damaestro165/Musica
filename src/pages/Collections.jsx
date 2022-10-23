@@ -1,28 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
+import CollectionTab from "../components/CollectionTab";
 import { useSelector } from "react-redux";
 
 function Collections() {
-  const { likedSong } = useSelector((state) => state.player);
+  const { collection, likedSong } = useSelector((state) => state.collections);
+  const [activeTab, setActiveTab] = useState("collectionTab");
+  const active =
+    activeTab === "collectionTab"
+      ? "rounded-[1.69rem] p-[0.625rem] bg-[#FACD66] mr-5"
+      : "rounded-[1.2rem]  p-[0.625rem] bg-transparent border ml-2 mr-5 hover:bg-[#FACD66]";
+
+  const active2 =
+    activeTab === "likedTab"
+      ? "rounded-[1.69rem] p-[0.625rem] bg-[#FACD66]"
+      : "rounded-[1.2rem]  p-[0.625rem] bg-transparent border ml-2 hover:bg-[#FACD66]";
 
   return (
     <div className="flex flex-col ml-[5.2rem]">
       <SearchBar />
       <div className="">
         <div className="">
-          <button className="rounded-[1.69rem] p-[0.625rem] bg-[#FACD66]">
+          <button
+            className={active}
+            onClick={() => setActiveTab("collectionTab")}
+          >
             My collection
           </button>
-          <button className="rounded-[1.2rem]  p-[0.625rem] bg-transparent border ml-2">
+          <button className={active2} onClick={() => setActiveTab("likedTab")}>
             Likes
           </button>
-          {likedSong && (
-            <div>
-              {likedSong.map((liked) => (
-                <div key={liked?.id}>{liked?.title}</div>
-              ))}
-            </div>
-          )}
+          <div>
+            {activeTab === "collectionTab" ? (
+              <CollectionTab collection={collection} />
+            ) : (
+              <CollectionTab collection={likedSong} />
+            )}
+          </div>
         </div>
       </div>
     </div>

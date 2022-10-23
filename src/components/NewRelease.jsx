@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGetTopChartsNgQuery } from "../redux/services/shazamCore";
+import { useGetNewSongQuery } from "../redux/services/musicaApi";
 import { useDispatch, useSelector } from "react-redux";
 
 import SongCard from "./SongCard";
@@ -7,7 +7,7 @@ import SongCard from "./SongCard";
 function NewRelease() {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const dispatch = useDispatch();
-  const { data, isFetching, error } = useGetTopChartsNgQuery();
+  const { data, isFetching, error } = useGetNewSongQuery();
 
   if (isFetching) return <div>Loading .....</div>;
 
@@ -16,7 +16,7 @@ function NewRelease() {
       <div className="font-bold text-2xl mb-2">New Release </div>
       <div className="flex overflow-x-scroll scrollbar-hide">
         {data?.map((song, i) => (
-          <div>
+          <div key={song.id}>
             <SongCard
               song={song}
               key={song}

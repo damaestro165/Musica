@@ -1,7 +1,8 @@
 import React from "react";
-import PlayPause from "./playPause";
+import DafaultIg from "../assets/images/imageD.png";
+
 import { useDispatch } from "react-redux";
-import { playPause, setActiveSong } from "../redux/services/playerSlice";
+import { playPause, setActiveSong } from "../redux/features/playerSlice";
 
 function SongCard({ song, isPlaying, activeSong, i, data }) {
   const dispatch = useDispatch();
@@ -17,12 +18,12 @@ function SongCard({ song, isPlaying, activeSong, i, data }) {
     <div
       key={song.id}
       className="m-2 flex-shrink-0  w-[9.56rem] h-[12rem]"
-      onClick={() => handlePlayClick(song)}
+      onClick={() => handlePlayClick()}
     >
-      <img src={song?.images?.coverart} className="h-[9.56rem] rounded-3xl" />
+      <img src={song?.cover || DafaultIg} className="h-[9.56rem] rounded-3xl" />
       <p>{song?.title}</p>
 
-      <p className="font-normal text-sm text-gray-500 mb-1">{song?.subtitle}</p>
+      <p className="font-normal text-sm text-gray-500 mb-1">{song?.artist}</p>
     </div>
   );
 }
