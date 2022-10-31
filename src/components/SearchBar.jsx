@@ -1,19 +1,20 @@
-import React from "react";
-import { SearchNormal1 } from "iconsax-react";
+/* eslint-disable linebreak-style */
+import React from 'react';
+import { SearchNormal1 } from 'iconsax-react';
 
 function SearchBar() {
   return (
-    <div className="flex flex-col">
-      <div className="m-7 w-[30px] h-[30px] relative">
-        <div className="flex absolute inset-y-6 -left-6 items-center pointer-events-none  text-[rgba(255,255,255,0.3)]">
+    <div className=" absolute right-0 top-0 z-30 m-7 flex-col md:relative ">
+      <div className="relative  h-[30px] w-[30px] ">
+        <div className="pointer-events-none absolute inset-y-6 -left-6 -mt-[3rem] flex items-center text-[rgba(255,255,255,0.3)]  md:mt-0">
           <SearchNormal1 className="w-5" />
         </div>
         <input
           type="search"
           value=""
           placeholder="Search artists"
-          className="bg-transparent p-2"
-          onChange={() => "good"}
+          className="hidden bg-transparent p-2 md:flex"
+          onChange={() => 'good'}
         />
       </div>
     </div>

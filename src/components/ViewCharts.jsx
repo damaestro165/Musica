@@ -1,13 +1,13 @@
-import React from "react";
-import DefaultImg from "../assets/images/defaultIMG.png";
-import SearchBar from "./SearchBar";
-import { useLocation } from "react-router-dom";
-import { useGetPlayListQuery } from "../redux/services/musicaApi";
-import { PlayCircle, MusicSquareAdd } from "iconsax-react";
-import { addCollection } from "../redux/features/collectionSlice";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import DefaultImg from '../assets/images/defaultIMG.png';
+import SearchBar from './SearchBar';
+import { useLocation } from 'react-router-dom';
+import { useGetPlayListQuery } from '../redux/services/musicaApi';
+import { PlayCircle, MusicSquareAdd } from 'iconsax-react';
+import { addCollection } from '../redux/features/collectionSlice';
+import { useDispatch } from 'react-redux';
 
-import { playPause, setActiveSong } from "../redux/features/playerSlice";
+import { playPause, setActiveSong } from '../redux/features/playerSlice';
 
 function ViewCharts() {
   const { data } = useGetPlayListQuery();
@@ -25,29 +25,32 @@ function ViewCharts() {
   return (
     <>
       <div
-        className="bg-no-repeat bg-cover bg-left-bottom ml-[5.2rem] h-[100vh] w-[100vw]"
+        className=" ml-0  w-[100vw] overflow-y-scroll bg-cover bg-left-bottom bg-no-repeat md:ml-[5.2rem]"
         style={{ backgroundImage: `url(${song?.cover})` }}
       >
-        <div className="flex flex-col bg-[#1E1E1E] bg-opacity-[0.7] h-[100vh] ">
+        <div className="flex h-[100vh] flex-col bg-[#1E1E1E] bg-opacity-[0.7] ">
           <SearchBar />
-          <div className="ml-5 flex items-end">
-            <img src={song?.cover} className="rounded-[2.2rem] h-[18.1rem]" />
-            <div className="w-[23.87rem] ml-5">
-              <div className="flex items-stretch flex-col h-[7rem] w-[32.9rem] ">
-                <h2 className="leading-10 text-3xl text-[#A4C7C6] font-medium ">
+          <div className="ml-0 flex flex-col items-center p-5 md:ml-5 md:flex-row md:items-end md:p-0">
+            <img
+              src={song?.cover}
+              className="h-[289px] w-[357px] rounded-[2.2rem] md:h-[18.1rem] "
+            />
+            <div className="ml-5 w-[23.87rem]">
+              <div className="flex h-[7rem] w-[20rem] flex-col  md:w-[32.9rem] md:items-stretch ">
+                <h2 className="ml-5 text-3xl font-medium leading-10  text-[#A4C7C6] md:ml-0  ">
                   Tomorrow’s tunes
                 </h2>
-                <p className="font-normal text-sm text[#EFEEE] text-opacity-11">
+                <p className="text[#EFEEE] text-opacity-11 ml-5 text-sm font-normal md:ml-0 ">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
                   aliquam, purus sit amet luctus venenatis
                 </p>
-                <p className="font-normal text-sm text-white/25 ">
+                <p className="ml-5 text-sm font-normal text-white/25 md:ml-0 ">
                   64 songs ~ 16 hrs+
                 </p>
               </div>
-              <div className="flex  justify-between mt-8 w-[18.25rem] ">
+              <div className="mt-8  ml-5 flex w-[18.25rem]  justify-between  md:ml-0  ">
                 <div
-                  className="bg-[rgba(255,255,255,0.07)] h-[2.25rem] rounded-[2rem] w-[5.44rem] flex justify-evenly  items-center p-[0.625rem] backdrop-blur-sm"
+                  className="flex h-[2.25rem] w-[5.44rem] items-center justify-evenly rounded-[2rem]  bg-[rgba(255,255,255,0.07)] p-[0.625rem] backdrop-blur-sm"
                   onClick={() => handlePlayClick(song)}
                 >
                   <svg
@@ -67,7 +70,7 @@ function ViewCharts() {
                 </div>
 
                 <div
-                  className="bg-[rgba(255,255,255,0.07)] h-[2.25rem] rounded-[2rem] w-[9.44rem] flex justify-evenly  items-center p-[0.625rem] backdrop-blur-sm "
+                  className="flex h-[2.25rem] w-[9.44rem] items-center justify-evenly rounded-[2rem]  bg-[rgba(255,255,255,0.07)] p-[0.625rem] backdrop-blur-sm "
                   onClick={() => dispatch(addCollection(song))}
                 >
                   <svg
@@ -97,7 +100,7 @@ function ViewCharts() {
 
                   <p className="text-sm">Add to collection</p>
                 </div>
-                <p className="bg-[rgba(255,255,255,0.07)] p-[0.625rem] w-[2.25rem]  rounded-full  backdrop-blur-sm flex items-center justify-center">
+                <p className="flex w-[2.25rem] items-center  justify-center  rounded-full bg-[rgba(255,255,255,0.07)] p-[0.625rem] backdrop-blur-sm">
                   <svg
                     width="14"
                     height="14"
@@ -114,20 +117,21 @@ function ViewCharts() {
               </div>
             </div>
           </div>
-          <div className="mt-[3.56rem] w-[100vw] ml-[1.625rem]">
+          <div className="mt-[3.56rem] ml-[1.625rem] mb-10 ">
             {data.map((song) => (
               <div
-                className="w-[72rem] bg-[rgba(51,55,59,0.37)] backdrop-blur-sm rounded-2xl h-[3.5rem] p-2 mb-3 "
+                className="mb-3 h-[3.5rem] w-[354px]  rounded-2xl bg-[rgba(51,55,59,0.37)] p-2 backdrop-blur-sm  md:w-[72rem] "
                 key={song.id}
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center  w-2/12 mr-10">
+                  <div className="mr-2 flex w-2/12 items-center md:mr-10">
                     <img
                       src={song.cover}
-                      className="w-[2.44rem] rounded-lg mr-6"
+                      className="mr-6 w-[2.44rem] rounded-lg"
                       alt={song.title}
                     />
                     <svg
+                      className="hidden md:block "
                       width="20"
                       height="20"
                       viewBox="0 0 20 20"
@@ -153,38 +157,46 @@ function ViewCharts() {
                     </svg>
                   </div>
                   <div className="flex w-10/12 justify-between">
-                    <p className=" text-xs w-1/5">{song.title}</p>
-                    <p className=" text-xs">Single</p>
-                    <p className=" text-xs">4:17</p>
-                    <svg
-                      width="17"
-                      height="17"
-                      viewBox="0 0 17 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8.25782 8.94595C8.63788 8.94595 8.94598 8.63785 8.94598 8.25779C8.94598 7.87774 8.63788 7.56964 8.25782 7.56964C7.87777 7.56964 7.56967 7.87774 7.56967 8.25779C7.56967 8.63785 7.87777 8.94595 8.25782 8.94595Z"
-                        stroke="#FACD66"
-                        stroke-width="1.3763"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M8.25782 4.12887C8.63788 4.12887 8.94598 3.82077 8.94598 3.44072C8.94598 3.06066 8.63788 2.75256 8.25782 2.75256C7.87777 2.75256 7.56967 3.06066 7.56967 3.44072C7.56967 3.82077 7.87777 4.12887 8.25782 4.12887Z"
-                        stroke="#FACD66"
-                        stroke-width="1.3763"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M8.25782 13.763C8.63788 13.763 8.94598 13.4549 8.94598 13.0749C8.94598 12.6948 8.63788 12.3867 8.25782 12.3867C7.87777 12.3867 7.56967 12.6948 7.56967 13.0749C7.56967 13.4549 7.87777 13.763 8.25782 13.763Z"
-                        stroke="#FACD66"
-                        stroke-width="1.3763"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    <div className="flex flex-col md:w-3/5 md:flex-row">
+                      <p className="text-xs font-light md:w-2/3">
+                        {song.title}~{song.artist}
+                      </p>
+                      <p className=" text-[10px] font-light md:text-xs ">
+                        Single
+                      </p>
+                    </div>
+                    <div className="flex flex-col md:w-1/3 md:flex-row-reverse md:justify-between">
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 17 17"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8.25782 8.94595C8.63788 8.94595 8.94598 8.63785 8.94598 8.25779C8.94598 7.87774 8.63788 7.56964 8.25782 7.56964C7.87777 7.56964 7.56967 7.87774 7.56967 8.25779C7.56967 8.63785 7.87777 8.94595 8.25782 8.94595Z"
+                          stroke="#FACD66"
+                          stroke-width="1.3763"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.25782 4.12887C8.63788 4.12887 8.94598 3.82077 8.94598 3.44072C8.94598 3.06066 8.63788 2.75256 8.25782 2.75256C7.87777 2.75256 7.56967 3.06066 7.56967 3.44072C7.56967 3.82077 7.87777 4.12887 8.25782 4.12887Z"
+                          stroke="#FACD66"
+                          stroke-width="1.3763"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M8.25782 13.763C8.63788 13.763 8.94598 13.4549 8.94598 13.0749C8.94598 12.6948 8.63788 12.3867 8.25782 12.3867C7.87777 12.3867 7.56967 12.6948 7.56967 13.0749C7.56967 13.4549 7.87777 13.763 8.25782 13.763Z"
+                          stroke="#FACD66"
+                          stroke-width="1.3763"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <p className=" text-xs">4:17</p>
+                    </div>
                   </div>
                 </div>
               </div>

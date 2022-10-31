@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useGetNewSongQuery } from "../redux/services/musicaApi";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from 'react';
+import { useGetNewSongQuery } from '../redux/services/musicaApi';
+import { useDispatch, useSelector } from 'react-redux';
 
-import SongCard from "./SongCard";
+import SongCard from './SongCard';
 
 function NewRelease() {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
@@ -12,9 +12,9 @@ function NewRelease() {
   if (isFetching) return <div>Loading .....</div>;
 
   return (
-    <div className="mt-[2.6rem]">
-      <div className="font-bold text-2xl mb-2">New Release </div>
-      <div className="flex overflow-x-scroll scrollbar-hide">
+    <div className="mt-[2.6rem] mb-2 ml-4 md:ml-0">
+      <div className="mb-2  text-xl font-bold  md:text-2xl ">New Release </div>
+      <div className="m mr-5 flex overflow-x-scroll scrollbar-hide">
         {data?.map((song, i) => (
           <div key={song.id}>
             <SongCard

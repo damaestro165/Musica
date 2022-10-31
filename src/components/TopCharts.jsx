@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Link } from "react-router-dom";
-import { useGetPlayListQuery } from "../redux/services/musicaApi";
-import { useDispatch, useSelector } from "react-redux";
-import { isLiked, setLikedSong } from "../redux/features/collectionSlice";
+import { Link } from 'react-router-dom';
+import { useGetPlayListQuery } from '../redux/services/musicaApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { isLiked, setLikedSong } from '../redux/features/collectionSlice';
 
 function TopCharts() {
   const { data, isFetching, error } = useGetPlayListQuery();
@@ -19,38 +19,39 @@ function TopCharts() {
   if (isFetching) return <div>Loading .....</div>;
 
   return (
-    <div className="ml-[2rem]">
-      <div className="font-bold text-2xl mb-2">Top charts</div>
-      <div>
+    <div className=" mt-5 ml-5 mr-9 self-start md:mr-0 md:ml-[2rem] md:mt-0">
+      <div className="mb-2 text-xl font-bold md:text-2xl">Top charts</div>
+      <div className=" md:w[5] mr-5 flex h-[233px] w-[90vw] overflow-x-scroll md:h-auto md:w-[417px] md:flex-col ">
         {topPlays?.map((song, i) => (
           <div
-            className="w-[26.06rem] bg-[#1A1E1F] h-[6rem] rounded-[1.25rem] my-3 flex justify-between items-center"
+            className="my-3 mr-4 flex  h-[233px] w-[323px] flex-shrink-0 items-start justify-between rounded-[1.25rem] bg-[#1A1E1F] p-2.5 md:mr-0 md:h-[6rem]  md:w-[26.06rem] md:items-center md:justify-between md:p-0"
             key={song.id}
           >
-            <div className="flex p-4">
+            <div className="flex flex-col p-4 md:flex-row ">
               <Link to={`/viewcharts/${song.id}`} state={song}>
                 <img
                   src={song?.cover}
-                  className="w-[3.94rem] h-[3.94rem] rounded-[0.625rem]"
+                  className="h-[99px] w-[108px] rounded-[0.625rem] md:h-[3.94rem] md:w-[3.94rem] "
                 />
               </Link>
 
               <div className="ml-2">
-                <p className="font-normal text-[1.062rem] mb-1">
+                <p className="mb-1 text-[1.062rem] font-normal">
                   {song?.title}
                 </p>
-                <p className="font-normal text-xs text-gray-500 mb-1">
+                <p className="mb-1 text-xs font-normal text-gray-500">
                   {song?.artist}
                 </p>
-                <p className="font-normal text-xs">2:34:45</p>
+                <p className="mt-5 text-xs font-normal md:mt-0">2:34:45</p>
               </div>
             </div>
+
             <div
               onClick={() => handleLiked(song)}
               className={
                 liked
-                  ? "border rounded-full p-2 border-[rgba(255,255,255,0.11)] mr-5 stroke-2 fill-[#FACD66] bg-[#FACD66]  stroke-white"
-                  : "border rounded-full p-2 border-[rgba(255,255,255,0.11)] mr-5 fill-transparent stroke-1  stroke-[#FACD66] hover:stroke-2 hover:bg-[#FACD66] hover:stroke-white"
+                  ? 'mr-5  rounded-full border border-[rgba(255,255,255,0.11)] bg-[#FACD66] fill-[#FACD66] stroke-white  stroke-2 p-2'
+                  : 'mr-5 rounded-full border border-[rgba(255,255,255,0.11)] fill-transparent stroke-[#FACD66] stroke-1  p-2 hover:bg-[#FACD66] hover:stroke-white hover:stroke-2'
               }
             >
               <svg

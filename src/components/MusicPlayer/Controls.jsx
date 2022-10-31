@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { PauseCircle } from "iconsax-react";
+import { PauseCircle } from 'iconsax-react';
 
 const Controls = ({
   isPlaying,
@@ -13,10 +13,10 @@ const Controls = ({
   handlePrevSong,
   handleNextSong,
 }) => (
-  <div className="flex items-center justify-between w-[16rem] mb-5">
+  <div className="mb-5 flex w-[16rem] items-center justify-between">
     <div
       onClick={() => setShuffle(!shuffle)}
-      className="hidden sm:block cursor-pointer"
+      className="hidden cursor-pointer sm:block"
     >
       <svg
         width="16"
@@ -41,7 +41,7 @@ const Controls = ({
     </div>
 
     {currentSongs?.length && (
-      <div className="cursor-pointer" onClick={handlePrevSong}>
+      <div className="hidden cursor-pointer md:flex" onClick={handlePrevSong}>
         <svg
           width="16"
           height="17"
@@ -154,7 +154,7 @@ const Controls = ({
     )}
     <div
       onClick={() => setRepeat((prev) => !prev)}
-      className="hidden sm:block cursor-pointer"
+      className="hidden cursor-pointer sm:block"
     >
       <svg
         width="16"

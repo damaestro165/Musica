@@ -3,9 +3,11 @@ import { PlayCircle } from "iconsax-react";
 import { useDispatch } from "react-redux";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 import { useGetPlayListQuery } from "../redux/services/musicaApi";
+import PlayPause from "./PlayPause";
 
 const CollectionTab = ({ collection }) => {
   const { data, isFetching, error } = useGetPlayListQuery();
+  // const { activeSong, isPlaying } = useSelector((state) => state.player);
   const dispatch = useDispatch();
 
   const handlePauseClick = () => {
@@ -30,6 +32,13 @@ const CollectionTab = ({ collection }) => {
               <p>{song.subtitle}</p>
             </div>
             <div className="absolute bottom-5 right-6 text-[#facd66]">
+              {/* <PlayPause
+                IsPlaying={isPlaying}
+                activeSong={activeSong}
+                song={song}
+                handlePause={handlePause}
+                handlePlay={handlePlay}
+              /> */}
               <PlayCircle
                 className="w-[2.5rem] h-[2.5rem]"
                 variant="Bulk"

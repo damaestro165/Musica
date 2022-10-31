@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   nextSong,
   prevSong,
   playPause,
-} from "../../redux/features/playerSlice";
-import Controls from "./Controls";
-import Player from "./Player";
-import Seekbar from "./Seekbar";
-import Track from "./Track";
-import VolumeBar from "./VolumeBar";
+} from '../../redux/features/playerSlice';
+import Controls from './Controls';
+import Player from './Player';
+import Seekbar from './Seekbar';
+import Track from './Track';
+import VolumeBar from './VolumeBar';
 
 const MusicPlayer = () => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } =
@@ -58,8 +58,8 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="relative px-8 w-full flex items-center">
-      <div className="w-[15%]">
+    <div className="relative flex w-[100vw] items-center px-8">
+      <div className="w-2/4 md:w-[15%]">
         <Track
           isPlaying={isPlaying}
           isActive={isActive}
@@ -67,7 +67,7 @@ const MusicPlayer = () => {
         />
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center w-[70%]">
+      <div className="flex w-[70%] flex-1 flex-col items-center justify-center">
         <Controls
           isPlaying={isPlaying}
           isActive={isActive}

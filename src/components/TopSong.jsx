@@ -1,20 +1,22 @@
-import React from "react";
-import { useGetPlayListQuery } from "../redux/services/musicaApi";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import SongCard from "./SongCard";
+/* eslint-disable linebreak-style */
+import React from 'react';
+
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useGetPlayListQuery } from '../redux/services/musicaApi';
+import SongCard from './SongCard';
 
 function TopArround() {
   const { data, isFetching, error } = useGetPlayListQuery();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   return (
-    <div className="mt-[2.6rem]">
-      <div className="font-bold text-2xl mb-2">Top Songs</div>
-      <div className="flex overflow-x-scroll scrollbar-hide">
+    <div className="mt-[2.6rem] mb-[6rem] ml-4 md:ml-0">
+      <div className="mb-2 text-2xl font-bold">Top Songs</div>
+      <div className="mr-5 flex overflow-x-scroll scrollbar-hide">
         {data?.map((song, i) => (
           <Link to={`/viewcharts/${song.id}`} key={song.id}>
-            <div className="m-2 flex-shrink-0  w-[9.56rem] h-[12rem]">
+            <div className="m-2 h-[12rem]  w-[9.56rem] flex-shrink-0">
               <div>
                 <SongCard
                   song={song}
