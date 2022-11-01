@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import Wave from "../assets/wave.svg";
-import HeroImage from "../assets/person.png";
-import People from "../assets/peopleicon.png";
-import Heartfill from "../assets/heartfill.svg";
+import React, { Component } from 'react';
+import Wave from '../assets/wave.svg';
+import HeroImage from '../assets/person.png';
+import People from '../assets/peopleicon.png';
+import Heartfill from '../assets/heartfill.svg';
 
 export class Hero extends Component {
   render() {
     return (
-      <div>
-        <div className="relative h-[490px] w-[367px] overflow-hidden rounded-[2.5rem] bg-[#609EAF] md:h-[23.313rem] md:w-[42.875rem]">
+      <div className="">
+        <div className="relative ml-[4rem] h-[25rem] w-[22rem] overflow-hidden rounded-[2.5rem] bg-[#609EAF] md:ml-0 md:h-[23.313rem] md:w-[40.875rem]">
           <img src={Wave} alt="wave" className="absolute top-0 right-0" />
           <img
             src={HeroImage}

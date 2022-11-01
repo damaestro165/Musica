@@ -9,12 +9,14 @@ function Home() {
   return (
     <div className="ml-2 flex w-[100vw] flex-col md:ml-[5.2rem]">
       <SearchBar />
-      <div className="mt-[5rem] flex flex-col items-center justify-center md:mt-0 md:flex-row md:items-start md:justify-start">
+      <div className="mt-[5rem] flex w-[80%] flex-col items-center justify-center md:mt-0 md:w-[95vw] md:flex-row md:items-start  md:justify-start">
         <Hero />
         <TopCharts />
       </div>
-      <NewRelease />
-      <div className="mb-5">
+      <div className="w-[90vw]">
+        <NewRelease />
+      </div>
+      <div className="mb-5 w-[90vw]">
         <YourArea />
       </div>
     </div>

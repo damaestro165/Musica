@@ -12,11 +12,11 @@ function TopArround() {
 
   return (
     <div className="mt-[2.6rem] mb-[6rem] ml-4 md:ml-0">
-      <div className="mb-2 text-2xl font-bold">Top Songs</div>
+      <div className="mb-2 text-xl font-bold">Top Songs</div>
       <div className="mr-5 flex overflow-x-scroll scrollbar-hide">
         {data?.map((song, i) => (
           <Link to={`/viewcharts/${song.id}`} key={song.id}>
-            <div className="m-2 h-[12rem]  w-[9.56rem] flex-shrink-0">
+            <div className="my-2 h-[12rem]  w-[9.56rem] flex-shrink-0">
               <div>
                 <SongCard
                   song={song}

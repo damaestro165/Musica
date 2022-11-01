@@ -19,9 +19,9 @@ function TopCharts() {
   if (isFetching) return <div>Loading .....</div>;
 
   return (
-    <div className=" mt-5 ml-5 mr-9 self-start md:mr-0 md:ml-[2rem] md:mt-0">
+    <div className=" mt-5 ml-5 mr-9 self-start  md:mr-0 md:mt-0">
       <div className="mb-2 text-xl font-bold md:text-2xl">Top charts</div>
-      <div className=" md:w[5] mr-5 flex h-[233px] w-[90vw] overflow-x-scroll md:h-auto md:w-[417px] md:flex-col ">
+      <div className=" md:w[5] mr-5 flex h-[233px] w-[90vw] overflow-y-hidden overflow-x-scroll md:h-auto md:w-[417px] md:flex-col ">
         {topPlays?.map((song, i) => (
           <div
             className="my-3 mr-4 flex  h-[233px] w-[323px] flex-shrink-0 items-start justify-between rounded-[1.25rem] bg-[#1A1E1F] p-2.5 md:mr-0 md:h-[6rem]  md:w-[26.06rem] md:items-center md:justify-between md:p-0"

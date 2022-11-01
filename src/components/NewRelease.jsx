@@ -14,7 +14,7 @@ function NewRelease() {
   return (
     <div className="mt-[2.6rem] mb-2 ml-4 md:ml-0">
       <div className="mb-2  text-xl font-bold  md:text-2xl ">New Release </div>
-      <div className="m mr-5 flex overflow-x-scroll scrollbar-hide">
+      <div className=" mr-5 flex overflow-x-scroll scrollbar-hide">
         {data?.map((song, i) => (
           <div key={song.id}>
             <SongCard

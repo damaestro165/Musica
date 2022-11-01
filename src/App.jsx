@@ -10,7 +10,7 @@ import ViewCharts from './components/ViewCharts';
 
 function App() {
   return (
-    <div>
+    <div className="w-[100vw]">
       <div className=" absolute top-2 z-10 mb-5 md:fixed">
         <Navbar />
       </div>
